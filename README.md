@@ -3,4 +3,5 @@ First MLOps project on vehicle insurance
 
 
 Initiating  CICD 
-new CICD 
+new CICD 1
+new cicd 2

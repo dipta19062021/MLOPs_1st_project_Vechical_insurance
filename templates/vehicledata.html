@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Insurance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <p class="eyebrow">Predictive Insurance Dashboard</p>
+                <h1>Vehicle Insurance Response Predictor</h1>
+                <p class="hero-text">
+                    Submit customer and vehicle profile details to estimate whether the customer is likely to respond positively to vehicle insurance outreach.
+                </p>
+            </div>
+
+            <div class="status-card">
+                <span class="status-label">Prediction Status</span>
+                <strong class="status-value">{{ context }}</strong>
+            </div>
+        </section>
+
+        <section class="workspace-card">
+            <div class="section-heading">
+                <h2>Input Details</h2>
+                <p>Fill every field carefully so the model receives the exact features it was trained on.</p>
+            </div>
+
+            <form method="post" action="/" class="prediction-form">
+                <div class="form-grid">
+                    <label class="field-card">
+                        <span class="field-label">Gender</span>
+                        <select name="Gender" required>
+                            <option value="" selected disabled>Select gender</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Age</span>
+                        <input type="number" name="Age" min="18" max="100" placeholder="Enter age" required>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Driving License</span>
+                        <select name="Driving_License" required>
+                            <option value="" selected disabled>Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Region Code</span>
+                        <input type="number" step="0.01" name="Region_Code" placeholder="Example: 28" required>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Previously Insured</span>
+                        <select name="Previously_Insured" required>
+                            <option value="" selected disabled>Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Annual Premium</span>
+                        <input type="number" step="0.01" name="Annual_Premium" placeholder="Enter premium amount" required>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Policy Sales Channel</span>
+                        <input type="number" step="0.01" name="Policy_Sales_Channel" placeholder="Enter sales channel" required>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Vintage</span>
+                        <input type="number" name="Vintage" min="1" placeholder="Days associated" required>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Vehicle Age &lt; 1 Year</span>
+                        <select name="Vehicle_Age_lt_1_Year" required>
+                            <option value="" selected disabled>Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </label>
+
+                    <label class="field-card">
+                        <span class="field-label">Vehicle Age &gt; 2 Years</span>
+                        <select name="Vehicle_Age_gt_2_Years" required>
+                            <option value="" selected disabled>Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </label>
+
+                    <label class="field-card field-card-wide">
+                        <span class="field-label">Vehicle Damage</span>
+                        <select name="Vehicle_Damage_Yes" required>
+                            <option value="" selected disabled>Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="primary-action">Predict Response</button>
+                    <a href="/train" class="secondary-action">Train Model</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
